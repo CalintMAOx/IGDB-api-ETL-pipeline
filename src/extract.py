@@ -7,7 +7,7 @@ def get_games_top100(client_id, access_token):
         'Authorization' : f'Bearer {access_token}'
     }
 
-    body = "fields id,name,game_type,genres,platforms,release_dates,themes,total_rating,total_rating_count,url,websites,videos; where total_rating_count >= 20; sort total_rating desc; limit 100;"
+    body = "fields id,name,game_type,genres,platforms,release_dates,themes,total_rating,total_rating_count,url,websites,videos; where total_rating_count >= 20 & game_type = 0; sort total_rating desc; limit 100;"
 
     response = requests.post(url, headers=headers, data=body)
 

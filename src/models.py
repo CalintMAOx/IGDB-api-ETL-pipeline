@@ -9,7 +9,6 @@ class Game(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    game_type = Column(Integer)
     genre = Column(Integer)
     rating = Column(Float)
     number_of_ratings = Column(Integer)
