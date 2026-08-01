@@ -25,3 +25,4 @@ jobs:
             -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
             -e TWITCH_CLIENT_ID="${{ secrets.TWITCH_CLIENT_ID }}" \
             -e TWITCH_CLIENT_SECRET="${{ secrets.TWITCH_CLIENT_SECRET }}" \
+            igdb-api-etl-pipeline
