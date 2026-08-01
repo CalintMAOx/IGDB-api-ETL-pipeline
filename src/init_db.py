@@ -1,10 +1,21 @@
-from src.database import engine
-from src.models import Base
+
+from src.database import get_db_connection
 
 def init_db():
     print("Initializing database...")
 
-    Base.metadata.create_all(bind=engine)
+    with get_db_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS games (
+                id INTEGER PRIMARY KEY,
+                name VARCHAR(255),
+                genres INTEGER[],
+                rating FLOAT,
+                number_of_ratings INTEGER
+            );
+                """)
+            conn.commit()
 
     print("Database initialized successfully!")
 

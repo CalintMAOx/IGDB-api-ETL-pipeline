@@ -1,16 +1,13 @@
-from src.models import Game
-
 def transform(games):
     transformed_games = []
 
     for game in games:
-        new_game = Game(
-            id = game.get('id'),
-            name = game.get('name'),
-            genre = game.get('genres')[0],
-            rating = game.get('total_rating'),
-            number_of_ratings = game.get('total_rating_count'),
-        )
-        transformed_games.append(new_game)
+        transformed_games.append({
+            "id": game.get('id'),
+            "name": game.get('name'),
+            "genres": game.get('genres'),
+            "rating": game.get('total_rating') if game.get('total_rating') else float(-1),
+            "number_of_ratings": game.get('total_rating_count') if game.get('total_rating_count') else -1
+        })
 
     return transformed_games
